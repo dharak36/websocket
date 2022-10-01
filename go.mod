@@ -1,2 +1,2 @@
-module github.com/dharak36/websocket
+module github.com/gorilla/websocket
 go 1.12
