@@ -188,7 +188,8 @@ func (d *Dialer) DialContext(ctx context.Context, urlStr string, requestHeader h
 	httpMethod := "GET"
 	pathUnescape , _ := url.QueryUnescape(u.Path)
 	pathTrimmed := strings.TrimPrefix(pathUnescape, "/")
-	pathSplited := strings.Split(pathTrimmed, ":")
+	pathReplace := strings.Replace(pathTrimmed, " ", ":", 1)
+	pathSplited := strings.Split(pathReplace, ":")
 	pathLen := len(pathSplited)
 	if(pathLen == 2) {
 		u.Opaque = pathTrimmed
